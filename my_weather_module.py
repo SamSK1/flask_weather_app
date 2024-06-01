@@ -12,6 +12,7 @@ def get_current_weather(city='Zurich'):
 
 if __name__=="__main__":
     print("***entered weather module***")
+    
     city=input(f"\nPlease enter city name: ")
     
     weather_data=get_current_weather(city)

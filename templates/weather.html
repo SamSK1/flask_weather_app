@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}} Weather</title>
-    <link href="{{url_for('static',filename='styles/style.css')}}" rel="stylesheet"/>
+    <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet"/>
 </head>
 <body>
     <h1>{{title}} Weather Info</h1>
 
-    <p>{{status}} and {{temp}} &deg;</p>
-    <p>Feels like {{feels_like}} &deg;</p>
+    <p>{{status}} and {{temp}}C &deg;</p>
+    <p>Feels like {{feels_like}}C &deg;</p>
     <form action="/weather">
         <input type="text" name="city1" id="city" placeholder="Enter the city you would like to know the weather of">
-        <button type="submit"></button>
+        <button type="submit">Get weather</button>
     </form>
 </body>
 </html>
