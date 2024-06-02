@@ -14,8 +14,12 @@ if __name__=="__main__":
     print("***entered weather module***")
     
     city=input(f"\nPlease enter city name: ")
-    
-    weather_data=get_current_weather(city)
 
+    if type(city)==None:
+        city='Zurich'
+    elif bool(city.strip())==False:
+        city='Zurich'
+    weather_data=get_current_weather(city)
+    
     print("****")
     pprint(weather_data)

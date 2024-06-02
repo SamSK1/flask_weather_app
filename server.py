@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from my_weather_module import get_current_weather
 from waitress import serve
-
+import webbrowser
 
 app=Flask(__name__)
 
@@ -13,7 +13,18 @@ def index():
 @app.route('/weather')
 def get_weather():
     city=request.args.get('city1')
+    if type(city)==None:
+        city='Zurich'
+        
+    elif bool(city.strip())==False:
+        city='Zurich'
+        
     weather_data=get_current_weather(city)
+    if  weather_data['cod']!=200:
+        weather_data=get_current_weather(city)
+        return webbrowser.open_new_tab('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+    weather_data=get_current_weather(city)
+    print('!!!!')
     return render_template(
         "weather.html",
         title=weather_data['name'],
