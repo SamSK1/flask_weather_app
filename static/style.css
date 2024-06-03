@@ -1,10 +1,10 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-body{
+ 
+/* .body_class{
     padding: 2rem;
     background-color: rgba(2, 2, 8, 0.948);
     color: rgb(248, 248, 248);
@@ -14,12 +14,26 @@ body{
     align-items: center;
     gap: 2rem;
     font-size: 2rem;
-}   
-input,button{
-    font-size: 2rem;
-    padding: 1rem;
-    border-radius: 10px;
-}
+}    */
+
 p{
     font-family:fantasy;
+} 
+.content{
+    max-width: 900px;
+    padding: 2rem;
+    margin: auto;
+    text-align: center;
+
+
+} 
+.weather_info{
+    text-align: center;
+}
+.form-elements{
+    max-width: 900px;
+    margin: auto;
+}
+#button_form{
+    margin-left: 2rem;
 }
