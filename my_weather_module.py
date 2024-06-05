@@ -1,6 +1,6 @@
 import os 
 from dotenv import load_dotenv
-from pprint import pprint
+
 import requests
 
 load_dotenv()
@@ -22,4 +22,3 @@ if __name__=="__main__":
     weather_data=get_current_weather(city)
     
     print("****")
-    pprint(weather_data)
