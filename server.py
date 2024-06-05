@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from my_weather_module import get_current_weather
+from my_weather_module import get_weather_picture
 from waitress import serve
 import webbrowser
 
@@ -8,7 +9,7 @@ app=Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    return render_template('base.html')
 
 @app.route('/weather')
 def get_weather():
@@ -24,13 +25,16 @@ def get_weather():
         weather_data=get_current_weather(city)
         return webbrowser.open_new_tab('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
     weather_data=get_current_weather(city)
-    print('!!!!')
+    weather_picture=get_weather_picture(city)
+
+
     return render_template(
         "weather.html",
         title=weather_data['name'],
         status=weather_data["weather"][0]["description"].capitalize(),
         temp=f"{weather_data['main']['temp']:.1f}",
-        feels_like=f"{weather_data['main']['feels_like']:.1f}"
+        feels_like=f"{weather_data['main']['feels_like']:.1f}",
+        image=weather_picture
 
     )
 if __name__=="__main__":

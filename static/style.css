@@ -26,7 +26,11 @@ p{
     text-align: center;
 
 
-} 
+}
+#ul_hover>:hover{
+  color:rgb(111, 122, 135);
+  cursor:pointer
+  }
 .weather_info{
     text-align: center;
 }
