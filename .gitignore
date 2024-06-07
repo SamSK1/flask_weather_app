@@ -1,5 +1,6 @@
 .env
-flask_project\__pycache__
+# flask_project\__pycache__
 __pycache__/
-my_weather_module.cpython-312.pyc
+
+
 .gitignore
