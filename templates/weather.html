@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
-    <div class="content">
+    <div class="content"> -->
+    {% extends "base.html" %}
+    {% block content %}
     <h1>{{title}} Weather Info</h1>
     <div class="weather_info" >
     <p>{{status}} and {{temp}}C &deg;</p>
     <p>Feels like {{feels_like}}C &deg;</p>
     <img src={{image}} alt="image">
     </div>
-
-    <form action="/weather" class="form-inline">
+    {% endblock %}
+    <!-- <form action="/weather" class="form-inline">
         <div class="form-elements">
         <input type="text" name="city1" id="city" placeholder="Enter the city"class="form-control mr-sm-2 w-50 p-3" type="search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button_form">Get weather</button>
@@ -27,4 +29,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </div>
 </body>
-</html>
+</html> -->

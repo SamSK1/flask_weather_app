@@ -8,6 +8,7 @@ app=Flask(__name__)
 
 @app.route('/')
 @app.route('/index')
+@app.route('/base')
 def index():
     return render_template('base.html')
 

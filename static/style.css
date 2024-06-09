@@ -33,8 +33,20 @@ p{
 }
 
 #ul_hover>:hover{
-  color:rgb(168, 190, 186);
+  color:#a8beba;
   cursor:pointer
+  }
+
+
+a:link, a:visited {
+    
+    color: rgb(253, 253, 253);
+    text-decoration: none;
+  }
+  
+  a:hover, a:active {
+    color:#a8beba;
+    text-decoration: none;
   }
 .weather_info{
     text-align: center;
