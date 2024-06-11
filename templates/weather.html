@@ -1,14 +1,28 @@
 {% extends "base.html" %}
 
-    <!-- {% block title %}{{title}} Weather{% endblock %} -->
-
+    {% block title %}{{title}} Weather
+    
+    {% endblock %}
+    
     {%block montent%}
-    <h1>{{title}} Weather Info</h1>
+    
+    
+    <div class="content">
+        <h1>{{title}} Weather Info</h1>
     <div class="weather_info" >
     <p>{{status}} and {{temp}}C &deg;</p>
     <p>Feels like {{feels_like}}C &deg;</p>
     <img src={{image}} alt="image">
+
+    <form action="/weather" class="form-inline">
+        <div class="form-elements">
+        <input type="text" name="city1" id="city" placeholder="Enter the city"class="form-control mr-sm-2 w-50 p-3" type="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button_form">Get weather</button>
+        </div>
+    </form>
     </div>
+</div>
+    
     {%endblock%}
 <!-- 
     <form action="/weather" class="form-inline">

@@ -15,16 +15,17 @@ def index():
 @app.route('/weather')
 def get_weather():
     city=request.args.get('city1')
-    if type(city)==None:
-        city='Zurich'
+    # if type(city)==None:
+    #     city='Zurich'
         
-    elif bool(city.strip())==False:
+    if bool(city.strip())==False:
         city='Zurich'
         
     weather_data=get_current_weather(city)
+   
     if  weather_data['cod']!=200:
         weather_data=get_current_weather(city)
-        return webbrowser.open_new_tab('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+        return render_template('city_not_found.html')
     weather_data=get_current_weather(city)
     weather_picture=get_weather_picture(city)
 

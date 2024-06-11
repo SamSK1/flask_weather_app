@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City not found</title>
-    <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet"/>
-</head>
-<body>
-    <h1>City not found Info </h1>
-    <h2>try again? </h2>
-    <form action="/weather">
-        <input type="text" name="city" id="city" placeholder="Enter the city you would like to know the weather of">
-        <button type="submit">Get weather</button>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+    
+    {% block title %}{{title}} Weather
+    
+    {% endblock %}
+    
+    {%block montent%}
+    
+    
+    <div class="content">
+        <h1>City not found, please try again</h1>
+        <form action="/weather" class="form-inline">
+            <div class="form-elements">
+            <input type="text" name="city1" id="city" placeholder="Enter the city"class="form-control mr-sm-2 w-50 p-3" type="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button_form">Get weather</button>
+            </div>
+        </form>
+        </div>
+</div>
+    
+    {%endblock%}

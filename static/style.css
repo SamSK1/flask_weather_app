@@ -31,23 +31,28 @@ p{
     
 
 }
+h1{
+    text-align: center;
+    padding-bottom: 2rem;
+}
 
 #ul_hover>:hover{
   color:#a8beba;
   cursor:pointer
   }
 
-
+ 
 a:link, a:visited {
     
     color: rgb(253, 253, 253);
     text-decoration: none;
-  }
+  } 
   
-  a:hover, a:active {
-    color:#a8beba;
+a:hover, a:active {
+    color:#de1812;
     text-decoration: none;
   }
+
 .weather_info{
     text-align: center;
 }
