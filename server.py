@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from my_weather_module import get_current_weather
 from my_weather_module import get_weather_picture
+from my_weather_module import get_random_weather
 from waitress import serve
 import webbrowser
 
@@ -39,6 +40,12 @@ def get_weather():
         image=weather_picture
 
     )
+
+@app.route('/random_weather')
+def get_random_weather_city():
+    weather_data=get_random_weather()
+    
+
 if __name__=="__main__":
-    serve(app,host="0.0.0.0", port=8080)
-    # app.run(debug=True,port=5000, host='0.0.0.0')
+    # serve(app,host="0.0.0.0", port=5000)
+    app.run(debug=True,port=5000, host='0.0.0.0')

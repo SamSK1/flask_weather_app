@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+    {% block title %}{{title}} Weather
+    
+    {% endblock %}
+    
+    {%block montent%}
+    
+    
+    <div class="content">
+        <h1>{{title}} Your random weather is </h1>
+    <div class="weather_info" >
+    <p>{{status}} and {{temp}}C &deg;</p>
+    <p>Feels like {{feels_like}}C &deg;</p>
+    <img src={{image}} alt="image">
+
+    <form action="/weather" class="form-inline">
+        <div class="form-elements">
+        <input type="text" name="city1" id="city" placeholder="Enter the city"class="form-control mr-sm-2 w-50 p-3" type="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button_form">Get weather</button>
+        </div>
+    </form>
+    </div>
+    <div style="padding-top: 1rem;">
+        <form action="/random_weather" class="form-inline"></form>
+        <button class="btn btn-outline-warning my-2 my-sm-0" name="city">Get weather from random city</button>
+      </div>
+</div>
+    
+    {%endblock%}
+
+
+
+    
+        
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
