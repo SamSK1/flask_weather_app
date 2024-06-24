@@ -56,7 +56,7 @@ def get_random_weather_city():
     except:
             emergency_city=['Paris','London','Chur','Bologna','Hamburg','Bratislava']
             city=random.choice(emergency_city)
-            
+
     country_alpha2=weather_data['sys']['country']
     if country_alpha2=='XK':
          country=pc.country_alpha2_to_country_name('US')
@@ -75,5 +75,5 @@ def get_random_weather_city():
         feels_like=f"{weather_data['main']['feels_like']:.1f}",
         image=weather_picture)
 if __name__=="__main__":
-    # serve(app,host="0.0.0.0", port=5000)
-    app.run(debug=True,port=5000, host='0.0.0.0')
+    serve(app,host="0.0.0.0", port=5000)
+    # app.run(debug=True,port=5000, host='0.0.0.0')
