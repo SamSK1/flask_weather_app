@@ -31,6 +31,7 @@ def get_weather():
     weather_data=get_current_weather(city)
     weather_picture=get_weather_picture(city)
     country_alpha2=weather_data['sys']['country']
+    
     country=pc.country_alpha2_to_country_name(country_alpha2)
 
 
@@ -57,11 +58,11 @@ def get_random_weather_city():
             emergency_city=['Paris','London','Chur','Bologna','Hamburg','Bratislava']
             city=random.choice(emergency_city)
 
+    # country_alpha2=weather_data['sys']['country']
+
+    while 'sys' not  in weather_data.keys():
+         weather_data=get_random_weather()
     country_alpha2=weather_data['sys']['country']
-    if country_alpha2=='XK':
-         country=pc.country_alpha2_to_country_name('US')
-         city='Chicago'
-  
     country=pc.country_alpha2_to_country_name(country_alpha2)
     weather_data=get_current_weather(city)
     weather_picture=get_weather_picture(city)

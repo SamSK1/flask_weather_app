@@ -27,7 +27,11 @@ def get_random_weather():
 
     # country_alpha2=weather_data['sys']['country']
     # country_name=pc.country_alpha2_to_country_name(country_alpha2)
+    
+    
     return weather_data
+    
+
 if __name__=="__main__":
     print("***entered weather module***")
     
