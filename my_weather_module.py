@@ -12,7 +12,10 @@ def get_current_weather(city='Zurich'):
     return weather_data
 def get_weather_picture(city='Zurich'):
     get_weather_data=get_current_weather(city)
-    icon_code=get_weather_data["weather"][0]['icon']
+    if 'weather' not in get_weather_data:
+        icon_code='01d'
+    else:
+        icon_code=get_weather_data["weather"][0]['icon']
     
     image_url=f'https://openweathermap.org/img/wn/{icon_code}@2x.png'
     return image_url
@@ -20,9 +23,16 @@ def get_random_weather():
     countries_api=requests.get('https://countriesnow.space/api/v0.1/countries').json()
     get_country_code=int(random.randint(0,len(countries_api['data'])-1))
     get_country=countries_api['data'][get_country_code]['country']
-    get_city=random.choice(countries_api['data'][get_country_code]['cities'])
+    try:
+        get_city=random.choice(countries_api['data'][get_country_code]['cities'])
+    except:
+        emergency_city=['Paris','London','Chur','Bologna','Hamburg','Bratislava','Lisabon','Moscow','Bangkok','Chiang Mai','Beijing','Johannesburg','Istanbul','Manchester']
+        get_city=random.choice(emergency_city)
+        
     weather_data=get_current_weather(get_city)
-
+    while weather_data["cod"]=='404':
+        weather_data=get_current_weather(get_city)
+        get_city=random.choice(countries_api['data'][get_country_code]['cities'])
     # return weather_data
 
     # country_alpha2=weather_data['sys']['country']

@@ -4,6 +4,7 @@ from my_weather_module import get_weather_picture
 from my_weather_module import get_random_weather
 from waitress import serve
 import pycountry_convert as pc
+
 import webbrowser
 import random
 app=Flask(__name__)
@@ -30,14 +31,12 @@ def get_weather():
         return render_template('city_not_found.html')
     weather_data=get_current_weather(city)
     weather_picture=get_weather_picture(city)
-    country_alpha2=weather_data['sys']['country']
     
-    country=pc.country_alpha2_to_country_name(country_alpha2)
 
 
     return render_template(
         "weather.html",
-        title=str(weather_data['name'])+","+country,
+        title=str(weather_data['name']),
         status=weather_data["weather"][0]["description"].capitalize(),
         temp=f"{weather_data['main']['temp']:.1f}",
         feels_like=f"{weather_data['main']['feels_like']:.1f}",
@@ -55,22 +54,23 @@ def get_random_weather_city():
             weather_data=get_random_weather()
             city=weather_data['name']
     except:
-            emergency_city=['Paris','London','Chur','Bologna','Hamburg','Bratislava']
+            emergency_city=['Paris','London','Chur','Bologna','Hamburg','Bratislava','Lisabon','Moscow','Bangkok','Chiang Mai','Beijing','Johannesburg','Istanbul','Manchester']
             city=random.choice(emergency_city)
 
     # country_alpha2=weather_data['sys']['country']
-
-    while 'sys' not  in weather_data.keys():
+    weather_data=None
+    while weather_data==None or 'sys' not  in weather_data.keys():
          weather_data=get_random_weather()
-    country_alpha2=weather_data['sys']['country']
-    country=pc.country_alpha2_to_country_name(country_alpha2)
+    
     weather_data=get_current_weather(city)
     weather_picture=get_weather_picture(city)
     
-
+    if 'name' not in weather_data or 'main' not in weather_data:
+         return render_template('city_not_found.html')
+    
     return render_template(        
         "weather.html",
-        title=str(weather_data['name'])+","+country,
+        title=str(weather_data['name']),
         status=weather_data["weather"][0]["description"].capitalize(),
         temp=f"{weather_data['main']['temp']:.1f}",
         feels_like=f"{weather_data['main']['feels_like']:.1f}",
